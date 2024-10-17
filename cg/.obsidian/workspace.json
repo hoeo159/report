@@ -8,15 +8,15 @@
         "type": "tabs",
         "children": [
           {
-            "id": "3f083ce803967ad3",
+            "id": "cec3f7da12a86887",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "2024-10-17.md",
-                "mode": "source",
-                "source": false
-              }
+                "file": "images/Pasted image 20241017164045.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20241017164045"
             }
           }
         ]
@@ -39,7 +39,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "파일 탐색기"
             }
           },
           {
@@ -54,7 +56,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "검색"
             }
           },
           {
@@ -62,15 +66,16 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "9f0c4b58114b74df",
@@ -86,7 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "2024-10-17.md",
+                "file": "images/Pasted image 20241017164045.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +99,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Pasted image 20241017164045의 백링크"
             }
           },
           {
@@ -103,10 +110,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "2024-10-17.md",
+                "file": "images/Pasted image 20241017164045.png",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Pasted image 20241017164045의 나가는 링크"
             }
           },
           {
@@ -117,7 +126,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -126,8 +137,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2024-10-17.md"
-              }
+                "file": "images/Pasted image 20241017164045.png"
+              },
+              "icon": "lucide-list",
+              "title": "Pasted image 20241017164045 개요"
             }
           }
         ]
@@ -147,20 +160,23 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "3f083ce803967ad3",
+  "active": "cec3f7da12a86887",
   "lastOpenFiles": [
-    "Pasted image 20241017014806.png",
-    "Pasted image 20241017011005.png",
-    "README.md",
+    "Spherical Harmonic Lighting; The Gritty Details.md",
+    "images/Pasted image 20241017164102.png",
+    "images/Pasted image 20241017164045.png",
     "2024-10-17.md",
+    "images/Pasted image 20241017162044.png",
+    "images/무제 파일.md",
     "2024-09-06-백민호(rex).md",
+    "images/Pasted image 20241017011005.png",
+    "images/Pasted image 20241017014806.png",
+    "README.md",
     "images/Pasted image 20241016010511.png",
     "images/Pasted image 20241016011239.png",
     "images/Pasted image 20241016011220.png",
     "images/Pasted image 20241016011155.png",
     "images/Pasted image 20241016010710.png",
-    "images/Pasted image 20241016010651.png",
-    "2024-07-26-백민호.md",
-    "images/Pasted image 20241015223041.png"
+    "2024-07-26-백민호.md"
   ]
 }
