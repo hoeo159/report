@@ -11,12 +11,14 @@
             "id": "cec3f7da12a86887",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "images/Pasted image 20241017164045.png"
+                "file": "2024-10-17.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20241017164045"
+              "icon": "lucide-file",
+              "title": "2024-10-17"
             }
           }
         ]
@@ -163,9 +165,9 @@
   "active": "cec3f7da12a86887",
   "lastOpenFiles": [
     "Spherical Harmonic Lighting; The Gritty Details.md",
-    "images/Pasted image 20241017164102.png",
-    "images/Pasted image 20241017164045.png",
     "2024-10-17.md",
+    "images/Pasted image 20241017164045.png",
+    "images/Pasted image 20241017164102.png",
     "images/Pasted image 20241017162044.png",
     "images/무제 파일.md",
     "2024-09-06-백민호(rex).md",
