@@ -7,5 +7,6 @@
   },
   "showLineNumber": false,
   "showIndentGuide": false,
-  "spellcheck": false
+  "spellcheck": false,
+  "alwaysUpdateLinks": true
 }
