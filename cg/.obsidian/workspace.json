@@ -13,15 +13,44 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "(진행중)Circular Harmonics.md",
+                "file": "Circular Harmonics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "(진행중)Circular Harmonics"
+              "title": "Circular Harmonics"
+            }
+          },
+          {
+            "id": "19068f9221eace08",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
+          },
+          {
+            "id": "dc50f1672fd10b70",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "(Ongoing) rex FFT.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "(Ongoing) rex FFT"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -162,24 +191,28 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "a4dfee781a64b2b9",
+  "active": "dc50f1672fd10b70",
   "lastOpenFiles": [
-    "images/CH_2.png",
-    "(진행중)Circular Harmonics.md",
-    "images/CH_1.png",
-    "(진행중)Spherical Harmonic Lighting; The Gritty Details.md",
-    "2024-10-17(fourier).md",
     "README.md",
+    "(Ongoing) rex FFT.md",
+    "Circular Harmonics.md",
+    "(Ongoing)Parametric Veiling-Glare Rendering.md",
+    "(Ongoing)Spherical Harmonic Lighting; The Gritty Details.md",
+    "2024-07-26-백민호.md",
+    "2024-08-02-백민호.md",
+    "2024-08-09-백민호.md",
+    "2024-09-06-백민호(rex).md",
+    "2024-10-17(fourier).md",
+    "images/CH_2.png",
+    "images/CH_1.png",
     "images/Pasted image 20241017164045.png",
     "images/Pasted image 20241017164102.png",
     "images/Pasted image 20241017162044.png",
     "images/무제 파일.md",
-    "2024-09-06-백민호(rex).md",
     "images/Pasted image 20241017011005.png",
     "images/Pasted image 20241017014806.png",
     "images/Pasted image 20241016010511.png",
     "images/Pasted image 20241016011239.png",
-    "images/Pasted image 20241016011220.png",
-    "2024-07-26-백민호.md"
+    "images/Pasted image 20241016011220.png"
   ]
 }
