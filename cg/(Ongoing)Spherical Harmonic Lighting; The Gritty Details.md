@@ -2,7 +2,7 @@
 ## Spherical Harmonic Lighting: The Gritty Details
 Robin Green, Sony Computer Entertainment America, Jan 16, 2003
 
-- 논문 리뷰 보다는 번역하면서 정리하는 글이 될 것 같다 사실 논문이 아니다.
+- 구면 조화 설명 document, 논문이 아니다.
 - 목적은 우선 Fourier도 좋지만 구면 조화에 대해 더 잘 알고 가면 좋을 것 같아서~이다.
 
 ### Introduction
@@ -25,11 +25,11 @@ $f_{r}(\mathbf{x},\vec{\omega_{i}}\to \vec{\omega_{0}})$ : surface vec x의 BRDF
 $$
 L(\mathbf{x}, {\omega}_{0}) = \int_{\Omega}f_{r}(\mathbf{x},\omega_{i},\omega)L_{i}(\mathbf{x},\omega_{i})(\omega_{i}\cdot \mathbf{n})d\omega_{i}
 $$
-![[Pasted image 20241017162044.png|300]] [위키피디아](https://en.wikipedia.org/wiki/Rendering_equation)참조
+![[PBR_1.png|300]] [위키피디아](https://en.wikipedia.org/wiki/Rendering_equation)참조
 
 갑자기 flux에 대한 개념이 등장한다. 단위 시간 dt 동안 어떤 면적 A를 투과하는 광자의 개수를 flux라고 한다. 다시 말해서 단위 시간동안 면적에 빛이 해준 양이기 때문에 단위는 J/s, 일률 watts.  중요한 부분은 dt동안 광자가 A만큼 면적을 통과하기 때문에 부피의 개념이 들어가야한다. 아래 두 번째 사진처럼 진행 방향과 dA와의 각도가 얕을 수록  쓸어가는 부피가 작아진다, 바닥의 projection area를 참고해보자($\cos \theta$ scale). 이때 단위면적 dA를 생각해서 **irradiance**를 구할 수 있다.
 
-![[Pasted image 20241017164045.png|300]]   ![[Pasted image 20241017164102.png|172]]    $E = \frac{d\Phi}{dA}$
+![[flux_1.png|300]]   ![[PBR_2.png|172]]    $E = \frac{d\Phi}{dA}$
 
 이제 어떻게 이 한 점 x를 반구형으로 영역을 놓았을 때 들어오는 빛들을 감지하고 integral하여 real-time에 계산할 수 있을까??가 이 문서의 목표가 되겠다. 이 저자는 특히 게임 프로그래머에 대한 말이 많다.
 
