@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "37d3de78ce119b32",
+        "id": "e500f097237c2eca",
         "type": "tabs",
         "children": [
           {
-            "id": "2d780d5f5a43a5ee",
+            "id": "f6ea93e0f5c8528c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "(Ongoing)Parametric Veiling-Glare Rendering.md",
+                "file": "할 것들.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "(Ongoing)Parametric Veiling-Glare Rendering"
+              "title": "할 것들"
             }
           }
         ]
@@ -162,16 +162,23 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "2d780d5f5a43a5ee",
+  "active": "f6ea93e0f5c8528c",
   "lastOpenFiles": [
-    "(Ongoing)Spherical Harmonic Lighting; The Gritty Details.md",
-    "(Ongoing)Parametric Veiling-Glare Rendering.md",
     "2024-10-17-fourier.md",
+    "할 것들.md",
+    "Circular-Harmonics.md",
+    "rex FFT.md",
+    "images/raster_gs.png",
+    "README.md",
+    "(Ongoing)Parametric Veiling-Glare Rendering.md",
+    "images/gs_gs.png",
+    "images/sh_gs.png",
+    "2024-09-06-백민호(rex).md",
+    "(Ongoing)Spherical Harmonic Lighting; The Gritty Details.md",
     "2024-11-01-Circular-Harmonics.md",
     "2024-11-08-rex FFT.md",
     "2024-07-26-백민호.md",
     "@2024.md",
-    "2024-09-06-백민호(rex).md",
     "2024-08-09-백민호.md",
     "2024-08-02-백민호.md",
     "images/Pasted image 20240828165518.png",
@@ -181,10 +188,6 @@
     "images/frequency_phase_mix.png",
     "images/Phase_reverse.png",
     "images/Phase_2.png",
-    "images/Phase_1.png",
-    "images/Frequency_1.png",
-    "images/PBR_2.png",
-    "README.md",
     "무제 파일 1.canvas",
     "무제 파일.canvas",
     "images/무제 파일.md"

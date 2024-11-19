@@ -1,8 +1,8 @@
 #### 1. Introduction
 
-&ensp;Veiling glare, lens flare는 ghosts에 의한 stray lights 현상이다~ 렌즈가 있는 카메라 조리개 통이랑 센서 표면 사이의 reflection에 의해 나타나는, veiling glare와 lens flare를 구분하는 것은 ghosts의 종류에 따라 다르다. veiling glare가 좀 더 smooth edge, weaker intensity, bigger size를 담당한다. 빛이 막 기하학적인 모양으로 뚜렷하게 나타나는 것은 lens flare. 옛날에는 제거 대상이었지만 요즘은 예술학적으로나 현실성을 위해 의도적으로 표현하기도 한다~~
+&ensp;Veiling glare, lens flare는 ghosts에 의한 stray lights 현상이다~ 렌즈가 있는 카메라 조리개 통이랑 센서 표면 사이의 reflection에 의해 나타나는, veiling glare와 lens flare를 구분하는 것은 ghosts의 종류에 따라 다르다. veiling glare가 좀 더 smooth edge, weaker intensity, bigger size를 담당한다. 빛이 막 기하학적인 모양으로 뚜렷하게 나타나는 것은 lens flare. 옛날에는 제거 대상이었지만 요즘은 예술학적으로나 현실성을 위해 의도적으로 표현하기도 한다
 
-&ensp;두 효과를 rendering 하기 위해서 많은 시도들이 있었는데~ path tracing 같은 것은 너무 오래걸리더라~
+&ensp;두 효과를 rendering 하기 위해서 많은 시도들이 있었는데~ path tracing 같은 것은 너무 오래걸리더라
 
 &ensp;이를 커버하기 위해서 sparse ray tracing과 rasterization 방법이 소개 되었다. sample size를 줄여서 계산량을 줄이면서 high quailty 유지. 이후 matrix를 통해 flare mapping 방식으로 real-time rendering << 요 설명에 대해서는 아직 지식이 부족함.
 
@@ -56,7 +56,7 @@ $$
 
 ##### 4.4 Separabiliy
 
-&ensp; Fourier Series 표현을 분리하여 $A_{n,m}$을 x, y축으로 독립적으로 하나를 fix해서 계산하고 중간에 texture 저장할 수 있다. DFT 할 때 row, column 해서 계산하듯이 
+&ensp; Fourier Series 표현을 분리하여 $A_{n,m}$을 DFT 할 때 row, column 해서 계산하듯이 x, y축으로 독립적으로 하나를 fix해서 계산하고 중간에 texture 저장할 수 있다. 이를 통해 ghost의 개수 K에 dependency가 있던 시간복잡도를 해결할 수 있다.
 $$
 \begin{aligned}
 \sum_{n=0}^{N}\sum_{m=0}^{M}A_{n,m}c_{n}(x)c_{m}(y)&=\sum_{n=0}^{N}c_{n}(x)\sum_{m=0}^{M}A_{n,m}c_{m}(y) \\
@@ -64,27 +64,39 @@ $$
 \end{aligned}
 
 $$
-
-
-
-
-
-
-
-
-
-
+##### 4.5 De-ringing with $\sigma$-approximation
 
 ringing artifact :  fourier로 approximation할 때, discontinuities에서 sinusoidal한 느낌 때문에 over/undershooting이 일어나는 현상
 
 $\sigma$-approximation은 fourier series(summation)에 sinc function을 곱하면서 ringing의 원인이 되는 Gibbs phenomenon을 줄이는 것
+##### 4.6 Positive-valued 2D Extension of PSFs
 
-Dirichlet boundary condition : boundary condition은 우리가 주목할 대상을 위해 경계를 bound하는 것, Dirichlet은 function이 domain의 경계를 따라서 수행해야하는 값을 지정하는 boundary condition. domain의 경계 값을 고정해놓고 쓸 수 있다.
+&ensp;위의 $\sigma$-approximation을 통해 위의 Fourier summation을 조정할 수 있다. 이 역시 불연속구간에서 Gibbs phenomenon이 발생하기 때문. 수식적으로 다음과 같다.
+$$
+F(x, y) = \sum^N\sum^M sinc\left( \frac{n}{N} \right)sinc\left( \frac{m}{M} \right)G_{n,m}(x, y)
+$$
 
-즉 [a, b] x [c, d] 크기에서 $u(x, y)$를 그릴 때, $u(x,c), u(x,d)$나 $u(a,y), u(b, y)$처럼 경계에 있는 값이 0이라면 해당 rectangle의 경계는 값이 모두 0이라는 뜻이다. 본문에서는 우리가 구하는 $F(x, y)$가 Dirichlet conditions(이때 D- boundary condition과 [D- condition](https://gosamy.tistory.com/269)도 존재하는데 무엇을 의미하는 걸까??)을 만족한다면~ 으로 내용을 시작한다.
+Dirichlet boundary condition : boundary condition은 우리가 주목할 대상을 위해 경계를 bound하는 것, Dirichlet은 function이 domain의 경계를 따라서 수행해야하는 값을 지정하는 boundary condition. domain의 경계 값을 고정해놓고 쓸 수 있다. 경계의 도함수는 고려하지 않는다.
+
+&ensp;즉 [a, b] x [c, d] 크기에서 $u(x, y)$를 그릴 때, $u(x,c), u(x,d)$나 $u(a,y), u(b, y)$처럼 경계에 있는 값이 0이라면 해당 rectangle의 경계는 값이 모두 0이라는 뜻이다. 본문에서는 우리가 구하는 $F(x, y)$가 Dirichlet boundary conditions(이때 D~ boundary condition과 [D~ condition](https://gosamy.tistory.com/269)도 존재하는데 이것이랑은 다름)을 만족한다는 내용을 시작한다. 이를 통해 cosine 항을 줄일 수 있다. 늘 봐왔듯이 fourier series는 $f(x) = \frac{1}{2}a_{0}+\sum a_{n}c_{n}(x)+b_{n}s_{n}(x)$로 표현할 수 있는데 boundary condition에서 f(0)=f(T)=0이므로 급수 전개식이 $f(x)=\sum b_{n}s_{n}(x)$로 풀 수 있게 된다.
+
+(근데 PSF파트에서 점을 중심으로 even function을 위해 PSF를 cosine항들의 summation으로 가정했었는데 요 파트랑은 어떻게 다른 것인지 아직 잘 모르겠다.)
 
 (other boundary conditions)
 Neumann : 요거는 경계 값을 고정해놓지 않고 function의 미분 값이 0으로 세팅
 Periodic : 말 그대로 경계 조건이 $u(a+L)=u(x)$처럼 반복되는 것, Dirichlet과 다른 점은 미분 값도 같다는 것.
 
-(37)식 오타??? continuos
+&ensp;F가 Dirichlet conditions을 만족한다면 F는 각 continuous points들의 fourier series의 sum으로 계산할 수 있다??????????
+
+
+#### Glare Model
+
+##### 5.1 Square Waves
+
+&ensp;veiling glare는 each ghost가 일정한 강도 $I_{k}$만큼의 2D을 그리며 center line을 통과하는 단면을 boxcar functions의 superposition으로 나타낼 수 있다.
+
+##### 5.1.1 Boxcar Functions
+
+&ensp;ghost가 나타내는 1D intensity function이 \[-r, r] 구간으로 제한할 수 있을 때 boxcar functions의 superposition으로 approximation할 수 있다. Heaviside step function H를 원점 0과 radius가 r이 되도록 대칭시켜 합치면 boxcar function을 구현할 수 있다. 카메라의 움직임에 따라 veiling glare가 따라가기 때문에 temporal interpolation(?)이 효과적인 표현에 중요하다. 그러나 H는 부분적으로 differentiable하지 않기 때문에 뭔가 수정해줘야 한다. 어떤 cosine 함수에 대해 COS(-r) = COS(r) = 0이라면 뭔가 boxcar function의 모양 같기는 하다.
+
+##### 5.2 Global Rotation

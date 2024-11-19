@@ -60,4 +60,4 @@ $$
 $$
 S_{N}(x) = \frac{a_{0}}{2}+\sum_{n=1}^N\left( a_{n}\cos\left(nx \right)+b_{n}\sin\left( nx \right) \right)
 $$
-	맨 위에서 CH의 basis, $B_{i}$와 그렇게 구할 수 있는 approximation function $\tilde{F}(\theta)$를 생각했을 때, $\frac{1}{\sqrt{ \pi }}$을 제외하고는 비슷한 개형을 띈다는 것을 알 수 있다. 따라서 Circular Harmonics는 그냥 fourier series의 T가 $2\pi$이고 scale이 $\frac{1}{\sqrt{ \pi }}$인 버전이다~ 라는 것을 알 수 있다. 본 글 animation을 통해 ploar에서 rect coordinate로 바뀔 때 fourier series의 꼴을 볼 수 있다.
+맨 위에서 CH의 basis, $B_{i}$와 그렇게 구할 수 있는 approximation function $\tilde{F}(\theta)$를 생각했을 때, $\frac{1}{\sqrt{ \pi }}$을 제외하고는 비슷한 개형을 띈다는 것을 알 수 있다. 따라서 Circular Harmonics는 그냥 fourier series의 T가 $2\pi$이고 scale이 $\frac{1}{\sqrt{ \pi }}$인 버전이다~ 라는 것을 알 수 있다. 본 글 animation을 통해 ploar에서 rect coordinate로 바뀔 때 fourier series의 꼴을 볼 수 있다.
