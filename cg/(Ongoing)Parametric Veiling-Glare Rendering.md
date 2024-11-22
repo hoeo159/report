@@ -100,3 +100,6 @@ Periodic : 말 그대로 경계 조건이 $u(a+L)=u(x)$처럼 반복되는 것, 
 &ensp;ghost가 나타내는 1D intensity function이 \[-r, r] 구간으로 제한할 수 있을 때 boxcar functions의 superposition으로 approximation할 수 있다. Heaviside step function H를 원점 0과 radius가 r이 되도록 대칭시켜 합치면 boxcar function을 구현할 수 있다. 카메라의 움직임에 따라 veiling glare가 따라가기 때문에 temporal interpolation(?)이 효과적인 표현에 중요하다. 그러나 H는 부분적으로 differentiable하지 않기 때문에 뭔가 수정해줘야 한다. 어떤 cosine 함수에 대해 COS(-r) = COS(r) = 0이라면 뭔가 boxcar function의 모양 같기는 하다.
 
 ##### 5.2 Global Rotation
+
+
+### OX_Grinder

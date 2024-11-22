@@ -4,6 +4,7 @@ Robin Green, Sony Computer Entertainment America, Jan 16, 2003
 
 - 구면 조화 설명 document, 논문이 아니다.
 - 목적은 우선 Fourier도 좋지만 구면 조화에 대해 더 잘 알고 가면 좋을 것 같아서~이다.
+- BRDF에 대해서도
 
 ### Introduction
 
