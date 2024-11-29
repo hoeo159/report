@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "6687569dc99f85be",
+        "id": "068f530bf70b6a85",
         "type": "tabs",
         "children": [
           {
-            "id": "29add3f6347d6690",
+            "id": "c42f8487dc009dd1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "2024 연차 보고서를 위한 vdb 요약.md",
+                "file": "sh/Circular-Harmonics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2024 연차 보고서를 위한 vdb 요약"
+              "title": "Circular-Harmonics"
             }
           }
         ]
@@ -162,23 +162,29 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "29add3f6347d6690",
+  "active": "439830ac9b0b7ed6",
   "lastOpenFiles": [
-    "Circular-Harmonics.md",
+    "sh/(Ongoing)Spherical Harmonic Lighting; The Gritty Details.md",
+    "tutorial/2024-10-17-fourier.md",
+    "sh/Circular-Harmonics.md",
+    "sh/reference.md",
+    "vglare/reference.md",
+    "sh/(Ongoing)Ray Tracing Shperical Harmonics Glyphs.md",
+    "vglare/(Ongoing)Parametric Veiling-Glare Rendering.md",
+    "vglare",
+    "tutorial/rex FFT.md",
+    "tutorial/2024-07-26-백민호.md",
+    "vdb/2024 연차 보고서를 위한 vdb 요약.md",
+    "sh",
+    "tutorial",
+    "vdb",
     "README.md",
-    "rex FFT.md",
     "할 것들.md",
-    "2024-07-26-백민호.md",
-    "2024-10-17-fourier.md",
-    "2024-09-06-백민호(rex).md",
-    "2024-08-02-백민호.md",
-    "2024-08-09-백민호.md",
-    "2024 연차 보고서를 위한 vdb 요약.md",
+    "tutorial/2024-08-02-백민호.md",
+    "tutorial/2024-08-09-백민호.md",
+    "tutorial/2024-09-06-백민호(rex).md",
     "images/vdb2.png",
     "images/vdb1.png",
-    "(Ongoing)Ray Tracing Shperical Harmonics Glyphs.md",
-    "(Ongoing)Spherical Harmonic Lighting; The Gritty Details.md",
-    "(Ongoing)Parametric Veiling-Glare Rendering.md",
     "images/raster_gs.png",
     "images/gs_gs.png",
     "images/sh_gs.png",
