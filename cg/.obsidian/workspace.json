@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "63b333d6f5af45ec",
+        "id": "adbc278dc7248090",
         "type": "tabs",
         "children": [
           {
-            "id": "b394c68f2dd1b52b",
+            "id": "ed18669b4a1793fc",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -162,30 +162,33 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "b394c68f2dd1b52b",
+  "active": "ed18669b4a1793fc",
   "lastOpenFiles": [
-    "2024-12-26.md",
-    "할 것들.md",
+    "README.md",
     "sh/SH.md",
+    "sh/reference.md",
+    "tutorial/rex FFT.md",
+    "vdb/CUDA Tutorial.md",
+    "tutorial/2024-10-17-fourier.md",
+    "vdb/2025-01-03.md",
+    "vdb/2024 연차 보고서를 위한 vdb 요약.md",
+    "할 것들.md",
+    "tutorial/2024-07-26-백민호.md",
+    "sh/(Ongoing)Spherical Harmonic Lighting; The Gritty Details.md",
+    "무제 파일.canvas",
+    "2025-01-02.md",
+    "2024-12-26.md",
     "tutorial/2024-09-06-백민호(rex).md",
     "tutorial/2024-08-09-백민호.md",
-    "vdb/CUDA Tutorial.md",
     "sh/Circular-Harmonics.md",
-    "sh/(Ongoing)Spherical Harmonic Lighting; The Gritty Details.md",
     "sh/(Ongoing)Ray Tracing Shperical Harmonics Glyphs.md",
-    "sh/reference.md",
     "vglare/reference.md",
     "vglare/(Ongoing)Parametric Veiling-Glare Rendering.md",
-    "vdb/2024 연차 보고서를 위한 vdb 요약.md",
-    "tutorial/rex FFT.md",
-    "tutorial/2024-10-17-fourier.md",
     "tutorial/2024-08-02-백민호.md",
-    "tutorial/2024-07-26-백민호.md",
     "vglare",
     "sh",
     "tutorial",
     "vdb",
-    "README.md",
     "images/vdb2.png",
     "images/vdb1.png",
     "images/raster_gs.png",
@@ -200,7 +203,6 @@
     "images/fourier_1.png",
     "images/frequency_phase_mix.png",
     "무제 파일 1.canvas",
-    "무제 파일.canvas",
     "images/무제 파일.md"
   ]
 }

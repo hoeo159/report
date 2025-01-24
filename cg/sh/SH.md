@@ -1,14 +1,28 @@
-$$
-r(\phi;\theta,l.m) = r_{0} +k\cdot \sqrt{ \frac{2l+1}{4\pi}\cdot \frac{(l-|m|)!}{(l+|m|)!} }\cdot|P_{l}^{m}(\cos \theta)\cdot e^{im\phi }|
-$$
+
+어떤 점 광원 $\vec{O}$에서 ray tracing을 쏠 때 $\vec{O}+t\vec{d}$ 가 되는데 이때 $\vec{C}$ 중심의 원 C에 대해서 교점 2개 $S_{0}, S_{1}$이 생길 텐데 이 때 t를 각 각 0과 1로 생각해서 문제를 간단하게 설정
+
+3차원으로 봐서 구 중심을 $C(0,0,0)$이라고 한다면 광원 O에서 쏜 ray가 통과한 구와 교점 $S_{0}$와 $S_{1}$ 사이 임의의 점 p를 생각해보자. 이때 점 p와 C 사이의 거리를 t에 관한 함수, 그리고 이때 $\theta, \phi$를 t에 관한 함수로 나타낼 수 있을까??
+
+다시 편하게 ray와 구의 교점을 $S_{1}$와 $S_{2}$로 나타냈을 때 ray를 $S_{1} + t(S_{2} - S_{1})$로 해서 놓았을 때 $C(0,0,0)$과 어떤 $S_{1}, S_{2}$사이의 점 p가 있을 텐데 p와 C 사이의 거리, 그때 $\theta, \phi$를 t에 관한 함수
+$R(t)=R\sqrt{ 1+2t(1-t)(\cos{\theta_{0}-1)} }$
+
+$I=\frac{1}{1+e^{(10r - 5)}}, r=\frac{R(t)*Y_{l}^{m}(\theta,\phi)}{R}$
+
+ray를 쏘는 직선의 방정식은 구와 두 접점 $S_{1}, S_{2}$를 알고 있기 때문에 $l = (1-t)S_{1} + tS_{2}$, 직선 위의 점 p와 중심이 0, 0, 0인 구의 중심과의 거리를 R(t)라고 했을 때
+$R(t)=R\sqrt{ 1+2t(1-t)(\cos{\theta_{0}-1)} }$
+$ratio=\frac{R(t)}{Y_{l}^{m}(x,y,z)}$, $I_{total} = \int I(t)dt$ 이때, x, y, z는 길이가 1로 정규화 된 좌표를 사용해야함
+그 때 R(t)도 R 에 대해서 정규화 해서 사용해야 하는가?? 식은 어떻게 될까? 이 것을 Intensity로 썼을 때 뭔가 적분이 가능한가??? 예를 들어 band 11로 우선 계산했을 때 $x = \frac{x(t)}{R(t)}$로 $Y_{1}^{1}(x)$식에 넣으면 상수 곱 $Y_{1}^{1}(x,y,z) = -SH_{1}*x$이므로 $ratio = \frac{R(t)^{2}}{SH_{1}((1-t)S_{1,x} + tS_{2,x})}$가 되므로 정리하면 $ratio = \frac{R^2 (1+2t(1-t)(\cos_{\theta_{0}} - 1)}{SH_{1}((1-t)S_{1,x} + tS_{2,x})}$가 되고 있어 R^2 을 뺴도 될 것 같고 어차피 정규화 될 거니까 이 ratio를 sigmoid에 넣으면 적분이 어려우니 간단한 선형함수로 우선 생각하는게 나을까?? 우선 그냥 ratio 자체를 쓰기??
+
+$R\sqrt{ 1+2t(1-t)A } \cdot (Bt + C)$
+
+$\approx (1+At(1-t)-\frac{1}{2}A^2t^2(1-t)^2)(Bt+C)$
 
 $$
-a_{k} \approx \sum_{n=0}^{N-1}f(\phi_{n})e^{-ik\phi_{n}}\Delta \phi
+\frac{1+At(1-t)-\frac{1}{2}A^2t^2(1-t)^2}{(Bt+C)}
 $$
 $$
-\tilde{f(\phi)} = \sum_{k = -K}^{K}a_{k}e^{ik\phi}
+e^{-t \sqrt{ 1+2t(1-t)A }}
 $$
-
 $$
-f_{i}(p) = \sigma(\alpha_{i})\exp\left( -\frac{1}{2}(\mu_{i}-p)^{T} cov_{i}^{-1}(\mu_{i}-p) \right)
+e^{-t(1+t(1-t)A-0.5A^2t^2(1-t)^2)}
 $$
