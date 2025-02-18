@@ -51,10 +51,19 @@ $$
 
 ## Occluder Preprocessing
 
+&ensp;기존의 SOC 알고리즘은 occluder 삼각형을 cluster로 group한다. 처음에는 두 삼각형을 quad로 병합하고 SAH 기반 bound box hierarchy 구조를 이용해서 quad와 삼각형을 bounded size 크기의 클러스터로 group화 한다. 여기서 다른 타입의 cone cluster를 도입한다. 이는 cluster의 모든 삼각형이 back-facing을 향하고 있을 때 해당 cluster를 스킵하는 기술에서 영감을 받았다. mesh rendering에서 일반적으로 사용된다고 한다. such cluster를 만드는 방법 : 이웃 삼각형 수 기준으로 삼각형들을 sorting. 가장 많은 neighbor를 가진 삼각형부터 병합을 시작. progressively하게 인접한 삼각형과 결합해서 cone cluster를 만든다. 추가되는 삼각형의 normal direction이 cone's axis와 가까워질 때까지 진행한다. 만약 cone's spanning angle이 predefined된 threshold에 도달 하면 중지. 이 콘들은 visibility test에서도 간단한 벡터 연산만 하기 때문에 모바일에서도 런타임이 간단하다. cone
+s angle이 너무 작으면 back-facing이고 culled 될 가능성이 작기 때문에 기존의 standard cluster로 처리해야한다.
+
 ## Occludee Preprocessing
+
+&ensp;Visibility Test <- occludee의 AABB 8 corner 점을 clip space에 projecting 해서, 가장 가까운 depth value를 결정하고 이 값을 depth buffer에 비교해서 가려졌는지 확인하는 방식. 하지만 너무 conservative해서 AABB가 true geometry에 비해 poorly 근사했을 때 불필요한 랜더링이 수행된다. 따라서 multi-AABB test를 제안. occludee preprocessing 동안, SAH 알고리즘을 적용해서 occludee의 traingles를 더 작은 AABB로 cluster한다. 이런 AABB들을 $S_{n}$으로 n개의 AABB set으로 관리. $S_{n}$의 quality을 test 수행. $S_{n}$을 여러 번 생성해서 최적의 $S_{n}$ AABB 집합을 찾는다. Occludee의 모든 AABB가 가려졌을 때 최종적으로 culling 판단. Occludee의 형상이 단순하면 기본 AABB를 사용하고, 복잡하면 Multi-AABB를 적용한다.
 
 ## Runtime Rasterization
 
+Rasterization 과정이 AVX256 기반 명령어 집합에 의존해서 모바일 환경에 incompatible했다. cross-platform XSIMD library를 이용했고 128 bit NEON inst를 이용해 최적화를 진행했다. 추가적으로 cluster assembly 과정에서 vertex position를 caching하고 pre-fetching하는 것을 통합해서 중복 계산을 최소화하고 low-end mobile 성능을 향상시켰다.
+
 ## Runtime Visibility Testing
+
+256 x 144 사이즈의 낮은 해상도 depth buffer를 사용했다. 대부분 occludees에는 잘 작동하지만 decal 같은 작은 물체는 카메라가 움직을 때 flickering 같은 결함이 발생한다. standard solution은 AABB에 scale factor를 추가해서 확장하거나 depth test하는 동안 투영되는 영역을 높이는 방법을 쓴다. 벗 이러한 접근은 종종 culling 정확도를 낮춘다, 투영되는 pixel 면적을 증가시키기 때문이다.
 
 # Experiments
