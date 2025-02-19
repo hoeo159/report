@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "할 것들.md",
+                "file": "Efficient Occluder Generation and Culling Pipeline for Mobile Games.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "할 것들"
+              "title": "Efficient Occluder Generation and Culling Pipeline for Mobile Games"
             }
           }
         ]
@@ -40,7 +40,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "파일 탐색기"
@@ -154,16 +155,17 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:퀵 스위처 열기": false,
+      "switcher:빠른 전환기 열기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
       "graph:그래프 뷰 열기": false,
       "canvas:새 캔버스 만들기": false,
-      "daily-notes:오늘의 데일리 노트 열기": false,
       "templates:템플릿 삽입": false,
       "command-palette:명령어 팔레트 열기": false
     }
   },
   "active": "ed18669b4a1793fc",
   "lastOpenFiles": [
+    "할 것들.md",
     "README.md",
     "sh/SH.md",
     "sh/reference.md",
@@ -172,7 +174,6 @@
     "tutorial/2024-10-17-fourier.md",
     "vdb/2025-01-03.md",
     "vdb/2024 연차 보고서를 위한 vdb 요약.md",
-    "할 것들.md",
     "tutorial/2024-07-26-백민호.md",
     "sh/(Ongoing)Spherical Harmonic Lighting; The Gritty Details.md",
     "무제 파일.canvas",

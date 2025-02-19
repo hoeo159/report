@@ -64,6 +64,40 @@ Rasterization 과정이 AVX256 기반 명령어 집합에 의존해서 모바일
 
 ## Runtime Visibility Testing
 
-256 x 144 사이즈의 낮은 해상도 depth buffer를 사용했다. 대부분 occludees에는 잘 작동하지만 decal 같은 작은 물체는 카메라가 움직을 때 flickering 같은 결함이 발생한다. standard solution은 AABB에 scale factor를 추가해서 확장하거나 depth test하는 동안 투영되는 영역을 높이는 방법을 쓴다. 벗 이러한 접근은 종종 culling 정확도를 낮춘다, 투영되는 pixel 면적을 증가시키기 때문이다.
+256 x 144 사이즈의 낮은 해상도 depth buffer를 사용했다. 대부분 occludees에는 잘 작동하지만 decal 같은 작은 물체는 카메라가 움직을 때 flickering 같은 결함이 발생한다. standard solution은 AABB에 scale factor를 추가해서 확장하거나 depth test하는 동안 투영되는 영역을 높이는 방법을 쓴다. 벗 이러한 접근은 종종 culling 정확도를 낮춘다, 투영되는 pixel 면적을 증가시키기 때문이다. Mobile-SOC에서는 visibility score라는 기법을 도입했다. 각 occludee에 대해 floating-point valued 인 점수 $v$를 유지한다. 처음에는 $v = 1$로 객체가 보이는 상태를 의미한다. depth test에서 만약 객체가 가려지지 않았다면 $v = 1$로 즉시 보이게 만들 수 있다. occludee가 한 프레임에서 가려지는 경우 $v$를 절반으로 감소해서 천천히 사라지도록 smoothly blend out 하도록 만든다. $v\leq{\frac{1}{16}}$이 될 경우 completely하게 culling을 수행한다. 이를 통해 작은 객체의 flikering 현상을 방지하고 부드러운 전환으로 false culling을 방지한다. 또한 낮은 resolution의 depth buffer로도 효과적인 occlusion culling 수행을 보여준다.
 
 # Experiments
+
+effectiveness, efficiency, runtime performance를 측정한다. 측정 대상은 occluder generation과 occlusion culling system이다. High, Mid, Low-end 수준의 mobile device에서 측정했다. offset distance는 $d = 0.5\%l$, $l$은 $M_{I}$ input mesh의 bounding box 대각선 길이를 의미한다.
+
+## Occluder Generation
+
+Valid Rate : occluder가 원본 mesh와 동일한 occlusion 효과를 가지는 비율
+Error Rate : 반대로 occlusion 잘못 수행하는 비율
+dataset : 85개 모델, 건축 구조, 게임 scene, terrain 등을 사용했다. occluder가 필요없는 low-density한 mesh는 제외했다. 평균적으로 87413개의 face(삼각형)과 일부 모델은 50만 개 이상의 삼각형을 포함한다. occluder generation이 다양한 모델에서 일관된 성능을 제공하는지 확인. $M_{I}$의 삼각형 개수에 따라 occluder 자동으로 조절. $t=max(300, 1\%|M_{I}|)$. larger size, complex structure에서는 더 많은 삼각형 할당. 평균 실행 시간 : 23.8s(가장 느린 모델은 178s), Valid Rate : 70.2% ~ 98.3%, 평균 82%, Error Rate (오류율): 0.001% ~ 2.0%, 평균 0.27%
+
+기존 연구와의 비교 (Silvennoinen et al. 2014)
+Silvennoinen et al. (2014) 방법은 전체 85개 모델 중 단 15개만 성공적으로 Occluder를 생성. 실행시간도 328초에 Valid Rate 68.1%, Error Rate가 21.3%, false culling이 많이 발생. 부족했던 점은 outside에서 accessible한 inner structures를 식별하는 능력이 부족했다. Mobile-SOC 방식에서는 동일 15개 모델에서 Error Rate 0.0019%로 감소시켰다.
+
+Wu et al. 2022
+Wu et al. 2022의 occluder 생성 과정 설명..
+planar face를 기반으로 candidate triangles를 선택하기 때문에 개수가 insufficient 하다. Iso-surface는 불필요한 occlusion을 발생시켜 false culling을 일으킨다. iterative triangle removal 단계의 연산 속도가 느림. 몇 시간 이상 소요될 수 있다. 비교 정확성을 위해 collection step만 test했다. second step은 valid rate를 낮추기 때문에 우리의 바법이 더 좋았다. 공정성을 위해 occluder의 삼각형 수를 갖게 맞추었다. error rate는 3.32% -> 0.32%, 실행시간은 Wu et al. 2022가 10초 정도 더 빠르지만 정확도는 Mobile-SOC가 우수함.  Wu et al. 2022는 85개 dataset 중 1개가 무한 루프에 걸렸기 때문에 Mobile-SOC는 84개 dataset과 비교했다.
+
+Chen et al. 2023
+Chen et al. 2023는 low-poly mesh를 생성하는 robust method를 소개함. occluder로 활용할 가능성이 있음. 하지만 삼각형 개수를 조절할 수 없다는 단점이 있음. 비교를 위해 Chen et al. 2023 방식을 실행해서 occluder를 생성하고 동일한 삼각형 개수를 가지도록 Mobile-SOC 방식을 적용하여 비교. Chen et al. 2023 방식이 valid rate가 87.6%로 높았지만 error rate가 7.5%로 높았다. Mobile-SOC를 넣었을 때에는 error rate가 0.47%로 낮출 수 있었다. 속도 역시 101.8초에서 25.2초로 단축시켰다. Chen et al. 2023 방법을 개선한 modified version으로 test를 추가로 진행. inner iso-surface를 계산한 후 QEM 기반으로 삼각형을 단순화. 하지만 self-intersection이 발생하고 thin wall이 손실되어 작은 fragment로 분할되어 나타났다. 실행 결과는 valid rate가 42.8%로 크게 낮아졌다. error rate는 3.24%로 여전히 높다고 판단. 수정된 버전에서도 Mobile-SOC가 더 좋은 성능을 가졌다.
+
+parameter study
+$d$(offset distance), occluder가 input mesh에서 얼마나 안쪽으로 들어가는지 조절하는 요소. d가 크면 false culling이 감소, d가 작다면 valid rate가 증가하는 면이 있다. 따라서 $d$ 값을 조절해서 최적의 occluder를 생성할 수 있는지 평가. offset distance d를 다르게 설정하여 여러 Occluder를 생성하고, Valid Rate 및 Error Rate를 비교 분석. 0.5%, 1.0% 5.0% size. 모델의 특성에 따라 $d$값을 조절 하면 최적의 occluder를 생성할 수 있다.
+## Mobile-SOC
+
+평가 지표 : cpu time, draw call number(occlusion culling 이후 rendering해야하는 객체 수), FPS
+비교군 : 기존 occlusion culling 기법, UE4 SOC, HOQ
+테스트 방식 : unreal engine 5.4 demo project 사용, sun temple 오픈 소스 레벨에서 성능 평가, 높은 밀도의 3d 모델을 복사하여 복잡한 게임 씬 생성 후 테스트.
+
+결과 : Mobile-SOC가 UE4 SOC보다 최대 4.6배 빠르고 draw call 수가 적어 gpu 부하가 감소. fps 성능도 향상된 모습을 보였다. HOQ는 gpu에서 실행하기 때문에 cpu time이 없고 1 frame delay이 발생하여 visibility test 오류가 발생할 수 있다. Mobile-SOC는 실시간으로 판단하기 때문에 정확한 culling이 가능하다. 즉 HOQ가 성능이 더 좋거나 비슷할 수 있지만 정확도가 떨어진다.
+
+데모에서도 노란색 픽셀이 많을 수록 더 많은 occluder mesh의 face가 outside로 나왔음을 의미하고 더 높은 error rate를 나타낸다. 우리의 방법과 비교했을 때,  Silvennoinen et al. 2014 (figure 18(e))는 error rate가 가장 높은 반면, the old version of our method는 가장 낮다. 하지만 몇 모델은 낮은 valid rate를 생성할 수 있다. figure 18g에서 확인할 수 있다.
+
+# Conclusion
+
+이 논문은 mobile game 최적화 rendering solugion을 제공한다. 자동 occluder generation과 효율적인 runtime occlusion culling 개념이 도입됬다. 다양한 dataset과 mobile platform에서 robust한 performance를 보여주었다. 우리 solution이 여러 사내 모바일 게임에 이미 배포되어 있고 수만 개의 복잡한 모델을 처리하고 있다. 하지만 몇가지 limitation이 존재. 많은 identified tiny triangles로 구성된 객체를 처리할 때 한계가 있고 이는 valid rate 감소로 이어진다. figure 16에서 확인할 수 있다. 이러한 문제를 해결 하기 위해 thin triangle 감지 단계를 비활성화 할 수 있다. 우리는 이런 이슈들을 다루는 더 자동화된 솔루션을 연구 중이다. 
