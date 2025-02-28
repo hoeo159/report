@@ -5,7 +5,7 @@
 
 # occluder generation
 
-&ensp;네 가지 주요 requirement가 있다. 1. computational overhead와 memory usage를 줄이기 위해 최소한의 삼각형을 가져야 한다. 2. 높은 수준의 occlusion rate을 가진다. 눈에 보이지 않은 물체를 차단하면서 눈에 보이지만 hidden으로 처리되는 false culling을 최소화 해야한다. "dirty" 한 $M_{I}$는, terrain, mountain 같은 모델의 input mesh, 복잡하고 최적화가 안된 mesh를 뜻한다. 일반적인 dirty mesh는 다음과 같은 점들을 가지고 있다 : intersection, overlap, fracture(쪼개진 여러 조각들), not properly oriented faces(잘못된 면 방향), gaps, open boundary, non-uniform element size(비균일한 요소 크기, 너무 크거나 작음). 이러한 점들에 대해서도 작동해야한다. 4. generation process는 반드시 large scale과 frequent model changes 에서도 효율적으로 수용해야한다. 실제로 개발자들은 absolute occlusion quality보다 generation speed를 더 우선 시 할 수도(might be) 있다. 이를 달성하기 위한 2-step approach. 1. user-defined distance parameter $d$에 따라 offset을 계산한다. 2. offset mesh는 user-specified target triangle count $t$에 맞게 단순화 되어 final occluder $M_{O}$를 생성하게 된다.
+&ensp;네 가지 주요 requirement가 있다. 1. computational overhead와 memory usage를 줄이기 위해 최소한의 삼각형을 가져야 한다. 2. 높은 수준의 occlusion rate을 가진다. 눈에 보이지 않은 물체를 차단하면서 눈에 보이지만 hidden으로 처리되는 false culling을 최소화 해야한다. 3. "dirty" 한 $M_{I}$는, terrain, mountain 같은 모델의 input mesh, 복잡하고 최적화가 안된 mesh를 뜻한다. 일반적인 dirty mesh는 다음과 같은 점들을 가지고 있다 : intersection, overlap, fracture(쪼개진 여러 조각들), not properly oriented faces(잘못된 면 방향), gaps, open boundary, non-uniform element size(비균일한 요소 크기, 너무 크거나 작음). 이러한 점들에 대해서도 작동해야한다. 4. generation process는 반드시 large scale과 frequent model changes 에서도 효율적으로 수용해야한다. 실제로 개발자들은 absolute occlusion quality보다 generation speed를 더 우선 시 할 수도(might be) 있다. 이를 달성하기 위한 2-step approach. 1. user-defined distance parameter $d$에 따라 offset을 계산한다. 2. offset mesh는 user-specified target triangle count $t$에 맞게 단순화 되어 final occluder $M_{O}$를 생성하게 된다.
 
 ## offset mesh generation
 
@@ -14,6 +14,11 @@
 ### offset direction
 
 &ensp;$p$의 주변 삼각형(one-ring neighborhood)들의 법선 집합($N(p)$)을 생각하고 offset direction $d$를 구하기 위해 energy function를 maximizing한다. 해당 function에 대해 간략히 소개하자면. 우선 첫 번째 항 $f(n_{i},d)$에 대해서는 $d$가 이웃 삼각형$n_{i}$에 대해 반대 방향을 가지려는 성질을 가지게 한다. 두 번째 항의 $g(M_{I}, p, d)$는 input mesh $M_{I}$와 $p$에서 $d$ 방향으로 ray를 쐈을 때 교점을 구한다. 교점의 법선 벡터가 d와 같은 방향이면 1, 없다면 -1, 다른 방향이면 0을 반환한다. 직관적으로 첫 번째 항은 $p$ 주변의 local feature를 이용했다. $d$가 mesh의 inward 방향을 향하도록 유도했다. 만약 첫 번째 항이 삼각형 개수인, $|N(p)|$보다 작다면 이는 offset 방향으로 인해 일부 이웃 삼각형에 따라 $p$가 outward로 이동했다는 의미이다. 두 번째 항은 $p$를 outward로 이동시키는 방향에 패널티를 주는 $M_{I}$의 global feature을 의미한다. 이는 intersection과 open boundary를 다루거나 offset을 많이 해서 mesh가 뚫리는 경우를 방지한다. inward 하면서 mesh 구조 상 안전한지 test한다. $d$의 후보군은 unit sphere 상에서 찾는다. 샘플링해서 여러 개의 벡터 방향을 생성하고 각 방향에 대해 energy function 값을 계산, max $d_{i}$를 선택한다.
+
+$$
+argmax \sum_{i = 1}^{|N(p)|}f(n_{i}, d)+|N(p)|g(M_{I}, p,d)
+$$
+$n_{i}$는 이웃 i번째 삼각형의 normal vector, $d$와 $p$는 현재 vertex의 direction과 position, $|N(p)|$는 vertex 이웃 삼각형 개수, $M_{I}$는 input mesh이다.
 
 ### offset distance
 
@@ -51,12 +56,11 @@ $$
 
 ## Occluder Preprocessing
 
-&ensp;기존의 SOC 알고리즘은 occluder 삼각형을 cluster로 group한다. 처음에는 두 삼각형을 quad로 병합하고 SAH 기반 bound box hierarchy 구조를 이용해서 quad와 삼각형을 bounded size 크기의 클러스터로 group화 한다. 여기서 다른 타입의 cone cluster를 도입한다. 이는 cluster의 모든 삼각형이 back-facing을 향하고 있을 때 해당 cluster를 스킵하는 기술에서 영감을 받았다. mesh rendering에서 일반적으로 사용된다고 한다. such cluster를 만드는 방법 : 이웃 삼각형 수 기준으로 삼각형들을 sorting. 가장 많은 neighbor를 가진 삼각형부터 병합을 시작. progressively하게 인접한 삼각형과 결합해서 cone cluster를 만든다. 추가되는 삼각형의 normal direction이 cone's axis와 가까워질 때까지 진행한다. 만약 cone's spanning angle이 predefined된 threshold에 도달 하면 중지. 이 콘들은 visibility test에서도 간단한 벡터 연산만 하기 때문에 모바일에서도 런타임이 간단하다. cone
-s angle이 너무 작으면 back-facing이고 culled 될 가능성이 작기 때문에 기존의 standard cluster로 처리해야한다.
+&ensp;기존의 SOC 알고리즘은 occluder 삼각형을 cluster로 group한다. 처음에는 두 삼각형을 quad로 병합하고 SAH 기반 bound box hierarchy 구조를 이용해서 quad와 삼각형을 bounded size 크기의 클러스터로 group화 한다. 여기서 다른 타입의 cone cluster를 도입한다. 이는 cluster의 모든 삼각형이 back-facing을 향하고 있을 때 해당 cluster를 스킵하는 기술에서 영감을 받았다. mesh rendering에서 일반적으로 사용된다고 한다. such cluster를 만드는 방법 : 이웃 삼각형 수 기준으로 삼각형들을 sorting. 가장 많은 neighbor를 가진 삼각형부터 병합을 시작. progressively하게 인접한 삼각형과 결합해서 cone cluster를 만든다. 추가되는 삼각형의 normal direction이 cone's axis와 가까워질 때까지 진행한다. 만약 cone's spanning angle이 predefined된 threshold에 도달 하면 중지. 이 콘들은 visibility test에서도 간단한 벡터 연산만 하기 때문에 모바일에서도 런타임이 간단하다. cone angle이 너무 작으면 back-facing이고 culled 될 가능성이 작기 때문에 기존의 standard cluster로 처리해야한다.
 
 ## Occludee Preprocessing
 
-&ensp;Visibility Test <- occludee의 AABB 8 corner 점을 clip space에 projecting 해서, 가장 가까운 depth value를 결정하고 이 값을 depth buffer에 비교해서 가려졌는지 확인하는 방식. 하지만 너무 conservative해서 AABB가 true geometry에 비해 poorly 근사했을 때 불필요한 랜더링이 수행된다. 따라서 multi-AABB test를 제안. occludee preprocessing 동안, SAH 알고리즘을 적용해서 occludee의 traingles를 더 작은 AABB로 cluster한다. 이런 AABB들을 $S_{n}$으로 n개의 AABB set으로 관리. $S_{n}$의 quality을 test 수행. $S_{n}$을 여러 번 생성해서 최적의 $S_{n}$ AABB 집합을 찾는다. Occludee의 모든 AABB가 가려졌을 때 최종적으로 culling 판단. Occludee의 형상이 단순하면 기본 AABB를 사용하고, 복잡하면 Multi-AABB를 적용한다.
+&ensp;typical한 Visibility Test 방식은 occludee AABB의 8 corner 점을 clip space에 projecting 해서, 가장 가까운 depth value를 결정하고 이 값을 depth buffer에 비교해서 가려졌는지 확인하는 방식. 하지만 너무 conservative해서 AABB가 true geometry에 비해 poorly 근사했을 때 불필요한 랜더링이 수행된다. 따라서 multi-AABB test를 제안. occludee preprocessing 동안, SAH 알고리즘을 적용해서 occludee의 traingles를 더 작은 AABB로 cluster한다. 이런 AABB들을 $S_{n}$으로 n개의 AABB set으로 관리. $S_{n}$의 quality을 test 수행. $S_{n}$을 여러 번 생성해서 최적의 $S_{n}$ AABB 집합을 찾는다. Occludee의 모든 AABB가 가려졌을 때 최종적으로 culling 판단. Occludee의 형상이 단순하면 기본 AABB를 사용하고, 복잡하면 Multi-AABB를 적용한다.
 
 ## Runtime Rasterization
 
@@ -68,13 +72,14 @@ Rasterization 과정이 AVX256 기반 명령어 집합에 의존해서 모바일
 
 # Experiments
 
-effectiveness, efficiency, runtime performance를 측정한다. 측정 대상은 occluder generation과 occlusion culling system이다. High, Mid, Low-end 수준의 mobile device에서 측정했다. offset distance는 $d = 0.5\%l$, $l$은 $M_{I}$ input mesh의 bounding box 대각선 길이를 의미한다.
+effectiveness, efficiency, runtime performance를 측정한다. 측정 대상은 occluder generation과 occlusion culling system이다. 모든 occlusion generation 실험은 9세대 라이젠 5950X CPU, 64GB RAM에서 이루어졌다. Mobile-SOC 관련 실험에서는  High, Mid, Low-end 수준의 mobile device에서 측정했다. offset distance는 $d = 0.5\%l$, $l$은 $M_{I}$ input mesh의 bounding box 대각선 길이를 의미한다.
 
 ## Occluder Generation
 
 Valid Rate : occluder가 원본 mesh와 동일한 occlusion 효과를 가지는 비율
 Error Rate : 반대로 occlusion 잘못 수행하는 비율
-dataset : 85개 모델, 건축 구조, 게임 scene, terrain 등을 사용했다. occluder가 필요없는 low-density한 mesh는 제외했다. 평균적으로 87413개의 face(삼각형)과 일부 모델은 50만 개 이상의 삼각형을 포함한다. occluder generation이 다양한 모델에서 일관된 성능을 제공하는지 확인. $M_{I}$의 삼각형 개수에 따라 occluder 자동으로 조절. $t=max(300, 1\%|M_{I}|)$. larger size, complex structure에서는 더 많은 삼각형 할당. 평균 실행 시간 : 23.8s(가장 느린 모델은 178s), Valid Rate : 70.2% ~ 98.3%, 평균 82%, Error Rate (오류율): 0.001% ~ 2.0%, 평균 0.27%
+dataset : 85개 모델, 건축 구조, 게임 scene, terrain 등을 사용했다. occluder가 필요없는 low-density한 mesh는 제외했다. 평균적으로 87413개의 face(삼각형)과 일부 모델은 50만 개 이상의 삼각형을 포함한다.
+robustness : occluder generation이 다양한 모델에서 일관된 성능을 제공하는지 확인. $M_{I}$의 삼각형 개수에 따라 occluder 자동으로 조절. $t=max(300, 1\%|M_{I}|)$. larger size, complex structure에서는 더 많은 삼각형 할당. 평균 실행 시간 : 23.8s(가장 느린 모델은 178s), Valid Rate : 70.2% ~ 98.3%, 평균 82%, Error Rate (오류율): 0.001% ~ 2.0%, 평균 0.27%
 
 기존 연구와의 비교 (Silvennoinen et al. 2014)
 Silvennoinen et al. (2014) 방법은 전체 85개 모델 중 단 15개만 성공적으로 Occluder를 생성. 실행시간도 328초에 Valid Rate 68.1%, Error Rate가 21.3%, false culling이 많이 발생. 부족했던 점은 outside에서 accessible한 inner structures를 식별하는 능력이 부족했다. Mobile-SOC 방식에서는 동일 15개 모델에서 Error Rate 0.0019%로 감소시켰다.
