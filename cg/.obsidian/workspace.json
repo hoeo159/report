@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "adbc278dc7248090",
+        "id": "89491d24e1c8a378",
         "type": "tabs",
         "children": [
           {
-            "id": "ed18669b4a1793fc",
+            "id": "96cbfadd3e877dfb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Efficient Occluder Generation and Culling Pipeline for Mobile Games.md",
+                "file": "vdb/Detailed Analysis and Optimization of CUDA K-means  Algorithm.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Efficient Occluder Generation and Culling Pipeline for Mobile Games"
+              "title": "Detailed Analysis and Optimization of CUDA K-means  Algorithm"
             }
           }
         ]
@@ -163,47 +163,50 @@
       "command-palette:명령어 팔레트 열기": false
     }
   },
-  "active": "ed18669b4a1793fc",
+  "active": "96cbfadd3e877dfb",
   "lastOpenFiles": [
+    "vglare/(Ongoing)Parametric Veiling-Glare Rendering.md",
+    "vdb/Detailed Analysis and Optimization of CUDA K-means  Algorithm.md",
+    "sh/SH.md",
+    "tutorial/2024-09-06-백민호(rex).md",
+    "tutorial/2024-08-09-백민호.md",
+    "tutorial/2024-08-02-백민호.md",
+    "tutorial/2024-07-26-백민호.md",
+    "vglare/tmp.md",
+    "images/F-B series(2, 10).png",
+    "images/F-B series(2, 20).png",
+    "images/F-B series(5,5).png",
+    "images/F-B series(5,10).png",
+    "images/F-B series(5,20).png",
+    "images/3d F-B series(5,10).png",
+    "images/3d F-B (5,20).png",
+    "images/moving F-B series(5, 20).png",
+    "images/moving F-B series(5,5).png",
+    "images/moving F-B series(5,10).png",
+    "review/Review papers_0631s2.md",
+    "review/Efficient Occluder Generation and Culling Pipeline for Mobile Games.md",
+    "review",
     "할 것들.md",
     "README.md",
-    "sh/SH.md",
     "sh/reference.md",
     "tutorial/rex FFT.md",
     "vdb/CUDA Tutorial.md",
     "tutorial/2024-10-17-fourier.md",
     "vdb/2025-01-03.md",
     "vdb/2024 연차 보고서를 위한 vdb 요약.md",
-    "tutorial/2024-07-26-백민호.md",
     "sh/(Ongoing)Spherical Harmonic Lighting; The Gritty Details.md",
     "무제 파일.canvas",
     "2025-01-02.md",
     "2024-12-26.md",
-    "tutorial/2024-09-06-백민호(rex).md",
-    "tutorial/2024-08-09-백민호.md",
     "sh/Circular-Harmonics.md",
     "sh/(Ongoing)Ray Tracing Shperical Harmonics Glyphs.md",
     "vglare/reference.md",
-    "vglare/(Ongoing)Parametric Veiling-Glare Rendering.md",
-    "tutorial/2024-08-02-백민호.md",
     "vglare",
     "sh",
     "tutorial",
     "vdb",
-    "images/vdb2.png",
-    "images/vdb1.png",
-    "images/raster_gs.png",
-    "images/gs_gs.png",
-    "images/sh_gs.png",
     "2024-11-01-Circular-Harmonics.md",
     "2024-11-08-rex FFT.md",
-    "@2024.md",
-    "images/Pasted image 20240828165518.png",
-    "images/Pasted image 20240828165641.png",
-    "images/Pasted image 20241016010511.png",
-    "images/fourier_1.png",
-    "images/frequency_phase_mix.png",
-    "무제 파일 1.canvas",
-    "images/무제 파일.md"
+    "무제 파일 1.canvas"
   ]
 }
