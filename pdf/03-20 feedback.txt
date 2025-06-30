@@ -1,0 +1,30 @@
+03-20 feedback
+
+veiling glare를 너무 생각하지 않기
+우리의 목표는 미리 pre-compute 해서 scalable하게 할 수 있는 방법론이 먼저
+그 다음에 사용할 수 있는 application으로 veiling glare를 쓰는 식의 스토리 텔링이 좋다.
+veiling glare 말고 쓸 수 있는 다른 곳을 찾아도 된다. (순서가 거꾸로 되어 있다)
+
+기존 연구의 문제점도 요런 계산량 관점에서 문제를 가진 application들을 찾아야 한다.
+fourier series란 단어에 매몰되지 않고 series 기반으로 scalable하게 계산할 수 있는
+model을 찾았다는 게 model 선정 기준이 되는게 낫다.
+기존에서는 veiling glare 근사할 수 있는게 요런 model이다 였는데 이렇게는 하지 않는게 낫다.
+
+element를 합쳐진 effect에서도 성능저하를 방지할 수 있는 아무거나 해도 됨
+superposition으로 이루어진 아무거나 큰 예시가 vglare인거고
+
+제목이나 model 선정 이런거에 veiling glare를 쓰면 veiling glare에 대한 문제를 모두 커버할 수 있어야 한다. 근데 그게 안되니까 메인은 "pre-compute해서 scalability를 높이자"가 메인
+
+section을 예시로 든다면 3. model, 4. realize(implement), 5. look-up table 순서가 된다.
+먼저 3. 에서 infty series로 이론적으로 맞음을 보이고 4. 에서 degree 근사해서 table 안쓰고 full로 돌려 그 다음에 추가 개선으로 5.를 쓰는 것이니까 look-up table은 아직 고려 대상 x
+look-up table을 쓰면 또 쓰기 전이랑 비교를 해야하기 때문이다~ (좀 귀찮아짐)
+
+제목도 1d 말고 1D, 그냥 2d fourier series 말고 bell-curve의 2d fourier series로 해야 한다
+아니면 왠지 다 커버 쳐야 할 것 같다
+
+N은 쉬운 건 7, 8개, 어려운 건 20 개 정도를 생각하고 있다.
+
+2d gaussian을 우선 채택
+
+생각해볼 것들) fisher linear discriminant, r, theta가 복잡하면 x, y로 펴서 생각해보기
+뭔가 근사해서 분해하는 것도 원래 버전을 짜놓고 해야한다 비교테이블을 만들어야 하니까
