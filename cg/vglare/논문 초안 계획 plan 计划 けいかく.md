@@ -50,6 +50,7 @@ glare effect를 Fourier based modeling에 적합한 수학적 조건(periodicity
 실험 결과, 렌더링 비용은 O(K)에서 O(N²)로 개선되며(K ≫ N²), 품질 역시 기존 ghost 누적 방식과 유사한 수준을 유지한다.
 
 
+
 2. intro: 전체 완성 필요 (4문단+contribution으로 작성)
 	- 배경 1문단: 완전 일반적 배경은 이야기 하지 말고, 논문의 문제에 대해서 직접 바로 치고 들어가시오.
 	- 기존 work의 문제점과 한계 1문단: related work의 3-4문장 summary라고 생각하고 작성
