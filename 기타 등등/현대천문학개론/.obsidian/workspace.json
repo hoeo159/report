@@ -1,70 +1,41 @@
 {
   "main": {
-    "id": "89d7eef7db0160f2",
+    "id": "5f74294cf108670d",
     "type": "split",
     "children": [
       {
-        "id": "b7ef671adaa162b2",
+        "id": "93fa1aaa7953afea",
         "type": "tabs",
         "children": [
           {
-            "id": "80d8c9cba5f75d2d",
+            "id": "be1038f08686c56a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "cg/tutorial/2020312914_Minho_Baek_a3.md",
+                "file": "현천개_1st_report_2020312914.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2020312914_Minho_Baek_a3"
-            }
-          },
-          {
-            "id": "0af6537b2af77b3a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "cg/tutorial/2020312914_Minho_Baek_a1.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2020312914_Minho_Baek_a1"
-            }
-          },
-          {
-            "id": "cd443b24f6164f9f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "기타 등등/현대천문학개론/무제.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "무제"
+              "title": "현천개_1st_report_2020312914"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "5fc2a3aedc234fd3",
+    "id": "50158ae28583717e",
     "type": "split",
     "children": [
       {
-        "id": "6f915759ae5fc5d1",
+        "id": "a72ebcd40ca9bb79",
         "type": "tabs",
         "children": [
           {
-            "id": "3a58d150847b7f73",
+            "id": "893e949c04d4b864",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -77,7 +48,7 @@
             }
           },
           {
-            "id": "8c81840e7a513d71",
+            "id": "bf852c152b4f22b9",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -94,7 +65,7 @@
             }
           },
           {
-            "id": "7d46e1c32463815b",
+            "id": "3be7cdc79ad7c22e",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -110,20 +81,20 @@
     "width": 300
   },
   "right": {
-    "id": "90c347a6ae118fab",
+    "id": "1eef6370c6cf85d3",
     "type": "split",
     "children": [
       {
-        "id": "d44ce8344ccaf5d4",
+        "id": "c0e0018959fdaa05",
         "type": "tabs",
         "children": [
           {
-            "id": "50e07495b87ea3a2",
+            "id": "863e0d49d7b326e3",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cg/tutorial/2020312914_Minho_Baek_a3.md",
+                "file": "현천개_1st_report_2020312914.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,25 +104,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "2020312914_Minho_Baek_a3 의 백링크"
+              "title": "현천개_1st_report_2020312914 의 백링크"
             }
           },
           {
-            "id": "f5668a6fdc9a3487",
+            "id": "91e2ce776d231276",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "cg/tutorial/2020312914_Minho_Baek_a3.md",
+                "file": "현천개_1st_report_2020312914.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "2020312914_Minho_Baek_a3 의 나가는 링크"
+              "title": "현천개_1st_report_2020312914 의 나가는 링크"
             }
           },
           {
-            "id": "3b80ce589afa413c",
+            "id": "dc270004b52838eb",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -166,18 +137,18 @@
             }
           },
           {
-            "id": "56a25ce8d5680836",
+            "id": "e2ac9c1991da6415",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "cg/tutorial/2020312914_Minho_Baek_a3.md",
+                "file": "현천개_1st_report_2020312914.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "2020312914_Minho_Baek_a3 의 개요"
+              "title": "현천개_1st_report_2020312914 의 개요"
             }
           }
         ]
@@ -189,34 +160,22 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "bases:새 베이스 생성하기": false,
       "switcher:빠른 전환기 열기": false,
       "graph:그래프 뷰 열기": false,
       "canvas:새 캔버스 만들기": false,
       "daily-notes:오늘의 일일 노트 열기": false,
       "templates:템플릿 삽입": false,
-      "command-palette:명령어 팔레트 열기": false
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false
     }
   },
-  "active": "3a58d150847b7f73",
+  "active": "be1038f08686c56a",
   "lastOpenFiles": [
-    "cg/tutorial/2020312914_Minho_Baek_a1.md",
-    "기타 등등/현대천문학개론/무제.md",
-    "README.md",
-    "기타 등등/현대천문학개론",
-    "기타 등등",
-    "cg/tutorial/2020312914_Minho_Baek_a3.md",
-    "Pasted image 20250517225150.png",
-    "Pasted image 20250517225126.png",
-    "cg/images/a3_good.png",
-    "cg/images/a3_holyshit.png",
-    "cg/tutorial/rex FFT.md",
-    "cg/vglare/(Ongoing)Parametric Veiling-Glare Rendering.md",
-    "cg/vglare/논문 초안 계획 plan 计划 けいかく.md",
-    "cg/vglare/tmp.md",
-    "cg/vglare/main.pdf",
-    "cg/2025-04-04 feedback.md",
-    "cg/할 것들.md",
-    "cg/README.md"
+    "images/EHT.png",
+    "현천개_1st_report_2020312914.md",
+    "images/우리은하.png",
+    "images/M87.png",
+    "images/1st_report_background.png",
+    "images"
   ]
 }

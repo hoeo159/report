@@ -8,5 +8,6 @@
   "showLineNumber": false,
   "showIndentGuide": false,
   "spellcheck": false,
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "promptDelete": false
 }

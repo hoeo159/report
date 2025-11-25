@@ -4,24 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "89491d24e1c8a378",
+        "id": "2c47056c808eade1",
         "type": "tabs",
         "children": [
           {
-            "id": "96cbfadd3e877dfb",
+            "id": "f253f8bdd33404ea",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "vdb/Detailed Analysis and Optimization of CUDA K-means  Algorithm.md",
+                "file": "영어공부/0. survey.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Detailed Analysis and Optimization of CUDA K-means  Algorithm"
+              "title": "0. survey"
+            }
+          },
+          {
+            "id": "ad350dd8d22f5f19",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "tmp/notebook 2025.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "notebook 2025"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -156,23 +171,47 @@
   "left-ribbon": {
     "hiddenItems": {
       "switcher:빠른 전환기 열기": false,
-      "daily-notes:오늘의 일일 노트 열기": false,
       "graph:그래프 뷰 열기": false,
       "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
       "templates:템플릿 삽입": false,
-      "command-palette:명령어 팔레트 열기": false
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false
     }
   },
-  "active": "96cbfadd3e877dfb",
+  "active": "ad350dd8d22f5f19",
   "lastOpenFiles": [
-    "vglare/(Ongoing)Parametric Veiling-Glare Rendering.md",
-    "vdb/Detailed Analysis and Optimization of CUDA K-means  Algorithm.md",
-    "sh/SH.md",
-    "tutorial/2024-09-06-백민호(rex).md",
+    "tmp/무제 1.md",
+    "tmp/돈슨.md",
+    "영어공부/0. survey.md",
+    "영어공부/무제 1.md",
+    "무제 1",
+    "영어공부/2. 음악 감상.md",
+    "영어공부/1. 자기소개하기.md",
+    "영어공부/무제.md",
+    "영어공부/3. 공원가기.md",
+    "영어공부/999. 돌발행동.md",
+    "무제",
+    "영어공부/998. 상황극.md",
+    "영어공부/100. 대중교통.md",
+    "영어공부/5. 국내 여행.md",
+    "영어공부/4. 거주지.md",
+    "영어공부/무제.base",
+    "영어공부/무제 1.md",
+    "영어공부",
+    "tmp/notebook 2025.md",
+    "tmp",
     "tutorial/2024-08-09-백민호.md",
-    "tutorial/2024-08-02-백민호.md",
+    "tutorial/2024-09-06-백민호(rex).md",
     "tutorial/2024-07-26-백민호.md",
-    "vglare/tmp.md",
+    "vglare/report/2025-02-06-vglare.md",
+    "vglare/report/2025-02-07-vglare.md",
+    "vglare/report/2025-02-28-vglare.md",
+    "vglare/report/2025-03-07-vglare.md",
+    "vglare/report/2025-03-18-vglare.md",
+    "vglare/report/2025-04-07-vglare-bug fix, normalize.md",
+    "vglare/report/2025-03-28-vglare-Parametric 2d Gaussian Fourier Series.md",
+    "vglare/report/2025-04-17-vglare-Intensity normalization using UBO.md",
     "images/F-B series(2, 10).png",
     "images/F-B series(2, 20).png",
     "images/F-B series(5,5).png",
@@ -183,30 +222,12 @@
     "images/moving F-B series(5, 20).png",
     "images/moving F-B series(5,5).png",
     "images/moving F-B series(5,10).png",
-    "review/Review papers_0631s2.md",
-    "review/Efficient Occluder Generation and Culling Pipeline for Mobile Games.md",
     "review",
-    "할 것들.md",
-    "README.md",
-    "sh/reference.md",
-    "tutorial/rex FFT.md",
-    "vdb/CUDA Tutorial.md",
-    "tutorial/2024-10-17-fourier.md",
-    "vdb/2025-01-03.md",
-    "vdb/2024 연차 보고서를 위한 vdb 요약.md",
-    "sh/(Ongoing)Spherical Harmonic Lighting; The Gritty Details.md",
     "무제 파일.canvas",
-    "2025-01-02.md",
-    "2024-12-26.md",
-    "sh/Circular-Harmonics.md",
-    "sh/(Ongoing)Ray Tracing Shperical Harmonics Glyphs.md",
-    "vglare/reference.md",
     "vglare",
     "sh",
     "tutorial",
     "vdb",
-    "2024-11-01-Circular-Harmonics.md",
-    "2024-11-08-rex FFT.md",
     "무제 파일 1.canvas"
   ]
 }

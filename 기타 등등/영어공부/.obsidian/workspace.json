@@ -1,70 +1,41 @@
 {
   "main": {
-    "id": "89d7eef7db0160f2",
+    "id": "50639d14b92cbae3",
     "type": "split",
     "children": [
       {
-        "id": "b7ef671adaa162b2",
+        "id": "fd50089d2b376aed",
         "type": "tabs",
         "children": [
           {
-            "id": "80d8c9cba5f75d2d",
+            "id": "f58f3cb3cc5b2719",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "cg/tutorial/2020312914_Minho_Baek_a3.md",
+                "file": "4. 거주지.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2020312914_Minho_Baek_a3"
-            }
-          },
-          {
-            "id": "0af6537b2af77b3a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "cg/tutorial/2020312914_Minho_Baek_a1.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2020312914_Minho_Baek_a1"
-            }
-          },
-          {
-            "id": "cd443b24f6164f9f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "기타 등등/현대천문학개론/무제.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "무제"
+              "title": "4. 거주지"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "5fc2a3aedc234fd3",
+    "id": "938c16133f3add85",
     "type": "split",
     "children": [
       {
-        "id": "6f915759ae5fc5d1",
+        "id": "3e95ae94138d23be",
         "type": "tabs",
         "children": [
           {
-            "id": "3a58d150847b7f73",
+            "id": "f7b1af43601bf747",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -77,7 +48,7 @@
             }
           },
           {
-            "id": "8c81840e7a513d71",
+            "id": "08d63c199d599310",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -94,7 +65,7 @@
             }
           },
           {
-            "id": "7d46e1c32463815b",
+            "id": "b0be2832e74246d8",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -110,20 +81,20 @@
     "width": 300
   },
   "right": {
-    "id": "90c347a6ae118fab",
+    "id": "0f337b1663d7a0f9",
     "type": "split",
     "children": [
       {
-        "id": "d44ce8344ccaf5d4",
+        "id": "61757d406828e806",
         "type": "tabs",
         "children": [
           {
-            "id": "50e07495b87ea3a2",
+            "id": "7d8952d62d74c7d3",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cg/tutorial/2020312914_Minho_Baek_a3.md",
+                "file": "0. survey.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,25 +104,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "2020312914_Minho_Baek_a3 의 백링크"
+              "title": "0. survey 의 백링크"
             }
           },
           {
-            "id": "f5668a6fdc9a3487",
+            "id": "42dae842a2b124be",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "cg/tutorial/2020312914_Minho_Baek_a3.md",
+                "file": "0. survey.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "2020312914_Minho_Baek_a3 의 나가는 링크"
+              "title": "0. survey 의 나가는 링크"
             }
           },
           {
-            "id": "3b80ce589afa413c",
+            "id": "ec6f01fac9aeffcf",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -166,18 +137,18 @@
             }
           },
           {
-            "id": "56a25ce8d5680836",
+            "id": "f13ca738ab3ca33a",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "cg/tutorial/2020312914_Minho_Baek_a3.md",
+                "file": "0. survey.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "2020312914_Minho_Baek_a3 의 개요"
+              "title": "0. survey 의 개요"
             }
           }
         ]
@@ -189,34 +160,35 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "bases:새 베이스 생성하기": false,
       "switcher:빠른 전환기 열기": false,
       "graph:그래프 뷰 열기": false,
       "canvas:새 캔버스 만들기": false,
       "daily-notes:오늘의 일일 노트 열기": false,
       "templates:템플릿 삽입": false,
-      "command-palette:명령어 팔레트 열기": false
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false
     }
   },
-  "active": "3a58d150847b7f73",
+  "active": "f58f3cb3cc5b2719",
   "lastOpenFiles": [
-    "cg/tutorial/2020312914_Minho_Baek_a1.md",
-    "기타 등등/현대천문학개론/무제.md",
-    "README.md",
-    "기타 등등/현대천문학개론",
-    "기타 등등",
-    "cg/tutorial/2020312914_Minho_Baek_a3.md",
-    "Pasted image 20250517225150.png",
-    "Pasted image 20250517225126.png",
-    "cg/images/a3_good.png",
-    "cg/images/a3_holyshit.png",
-    "cg/tutorial/rex FFT.md",
-    "cg/vglare/(Ongoing)Parametric Veiling-Glare Rendering.md",
-    "cg/vglare/논문 초안 계획 plan 计划 けいかく.md",
-    "cg/vglare/tmp.md",
-    "cg/vglare/main.pdf",
-    "cg/2025-04-04 feedback.md",
-    "cg/할 것들.md",
-    "cg/README.md"
+    "5. 국내 여행.md",
+    "4. 거주지.md",
+    "3. 공원가기.md",
+    "2. 음악 감상.md",
+    "1. 자기소개하기.md",
+    "0. survey.md",
+    "1000. 쓰기 괜춘한 것들.md",
+    "999. 돌발행동.md",
+    "998. 상황극.md",
+    "100. 대중교통.md",
+    "13. 집에서 보내는 휴가.md",
+    "8. 카페나 커피 전문점 가기.md",
+    "6. 게임하기.md",
+    "9. 독서하기.md",
+    "12. 해외 여행.md",
+    "11. 국내 여행.md",
+    "10. 조깅과 걷기.md",
+    "7. 공연보기.md",
+    "무제"
   ]
 }
