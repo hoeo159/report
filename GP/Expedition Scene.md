@@ -1,0 +1,34 @@
+- Canvas
+    - GoToHubBTN
+    - HUDText
+- EventSystem
+- Directional Light
+- Bootstrapper
+	- RuntimeBootstrap.cs(테스트용 Hub에서 gameManager를 만드는데 Expedition Scene에서 시작해도 오류를 없애기 위해)
+- TestUI
+	- ExpeditionReturnUI
+		- ExpeditionReturnUI.cs(moving, npc, farming 수 등 여러가지 확인용 UI)
+- Level_1
+    - GridManager
+	    - GridManager.cs()
+		    - 그리드 타일을 생성/관리하는 중앙 관리자야. 타일 프리팹을 `tileSize` 간격으로 배치하고, 각 타일에 좌표(Coord)와 기본 머티리얼/하이라이트 머티리얼을 세팅한다. 또한 디버그/월드 이벤트용으로 농사·NPC·목표·방사능·레이더 같은 타일 컨텐츠를 배치하고, 현재 맵에 남아있는 기회 수(opportunity count)를 집계해 `GameStateSO`에 반영한다.
+	    - Tiles(Tile.cs가 있는 Tile prefabs가 모인다)
+    - Player
+	    - ExpedPlayer.cs
+		    - 탐험 씬에서 플레이어 말(토큰)의 위치/이동 애니메이션을 담당하는 경량 컨트롤러야. 그리드 좌표(Coord)를 상태로 들고 있고, Place()로 시작 위치를 즉시 세팅하며 MoveTo() 코루틴으로 moveDuration 동안 Lerp로 부드럽게 타일 위치로 이동시킨다. 또한 타일 위에 떠 보이도록 heightOffset을 더해 시각적 높이 보정을 적용하고, maxMoveDistance로 이동 가능 거리(룰) 값을 제공한다.
+	    - CombatUnit.cs
+		    - 전투/월드 턴에서 사용되는 유닛의 공통 데이터·상태(HP, 진영, 좌표)와 기본 전투 기능(피해 계산/피해 적용)을 묶은 컴포넌트야. Init()로 UnitDataSO(스탯/머티리얼/높이 등)와 Faction, 그리드 좌표(coord) 및 월드 위치를 세팅하고, 렌더러 머티리얼과 HP를 초기화한다. SetCoord()/SyncCoord()로 좌표를 갱신하며, DamageTo()와 TakeDamage()로 공격력-방어력 기반의 단순 데미지 모델과 사망 판정을 제공한다.
+    - Exped Controller
+	    - ExpedController.cs
+		    - 탐험 씬에서 플레이어 입력(마우스/키보드)을 받아 타일 hover 하이라이트와 이동을 처리하고, 이동 결과를 GameState/타일 점유/CombatUnit 좌표에 반영한 뒤 월드 턴(WorldTurnRunner)을 트리거하는 컨트롤러야.  `Start()`에서 시작 타일 배치와 `playerUnits`에 등록된 유닛들을 현재 Transform 위치 → 그리드 좌표로 변환(WorldToGridCoord)해서 `CombatUnit.Init()`로 초기화한다.  이동은 `MovePlayer()` 코루틴으로 수행하며, 이동 후 `HandleEnterTile()`에서 Farming/NPC/Goal/Radiation 같은 타일 컨텐츠 이벤트를 처리하고, 조건이 맞으면 `RunWorldTurn()`을 호출해 적/NPC 턴을 한 번 실행하게 만든다.
+    - World Turn Runner
+	    - WorldTurnRunner.cs
+		    - 탐험에서 플레이어가 한 번 행동(이동)한 뒤에 “월드 턴(적의 차례)”을 코루틴으로 순차 실행해주는 오케스트레이터야.  `RunWorldTurn()` 시작 시 `busy`로 중복 실행을 막고, `RefreshPlayerUnits()`로 씬에 존재하는 살아있는 Player 진영 CombatUnit 목록을 다시 수집한 뒤 이를 적 AI에게 넘긴다.  그 다음 `FindObjectsByType<EnemyController>()`로 모든 적 컨트롤러를 찾아 `enemy.TakeTurn(state, playerUnits)`를 하나씩 `yield return`으로 실행해서 적들이 차례대로 행동하게 만든다.
+    - Combat Unit
+	    - EnemyController.cs
+		    - CombatUnit(적 유닛)의 “월드 턴 행동 로직(AI)”을 담당하는 컴포넌트야.  `TakeTurn()`에서 가장 가까운 플레이어 유닛을 찾고, 거리/시야/공격범위에 따라 (1) 즉시 공격 → (2) 시야 밖이면 홈 주변 순찰 → (3) 시야 안이면 Utility AI로 추적+공격 순으로 행동을 선택한다.  추적/순찰 이동은 `CombatAction.Move()`로 코루틴 애니메이션(스텝 이동)으로 처리하고, 시야는 `enemyAgressive` 같은 월드 파라미터를 반영해 `CalcSight()`에서 동적으로 보정되는 게 특징이야.
+	    - CombatUnit.cs
+    - Camera Rig
+	    - Trackball.cs
+		    - 카메라 관련 유틸
+	    - Main Camera
