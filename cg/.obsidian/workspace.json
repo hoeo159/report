@@ -39,30 +39,18 @@
             "id": "f23e4217def38942",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.11.5"
-              },
-              "icon": "lucide-book-up",
-              "title": "릴리즈 노트 1.11.5"
-            }
-          },
-          {
-            "id": "09d2478dae874c74",
-            "type": "leaf",
-            "state": {
               "type": "markdown",
               "state": {
-                "file": "GP/무제.md",
+                "file": "백민호 이력서.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "무제"
+              "title": "백민호 이력서"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -205,8 +193,22 @@
       "bases:새 베이스 생성하기": false
     }
   },
-  "active": "439830ac9b0b7ed6",
+  "active": "f23e4217def38942",
   "lastOpenFiles": [
+    "백민호 이력서.md",
+    "vglare/glare model metric.md",
+    "vglare/archive/glare model metric.md",
+    "vglare/glare model metric.pdf",
+    "vglare/archive/2025-05-27-vglare-intro.md",
+    "vglare/urp.md",
+    "vglare/archive/논문 초안.md",
+    "vglare/archive/urp.md",
+    "vglare/URP.pdf",
+    "vglare/archive/Quad-Based Fourier Transform for Efficient Diffraction Synthesis.md",
+    "vglare/archive",
+    "vglare/새 폴더",
+    "tutorial/2020312914_Minho_Baek_a3.md",
+    "할 것들.md",
     "GP/무제.md",
     "GP",
     "tmp/무제 1.md",
@@ -224,16 +226,6 @@
     "vdb/meetings/2025-05-02-meeting.md",
     "vdb/meetings/2025-05-30-meeting.md",
     "tutorial/2024-08-02-백민호.md",
-    "vdb/report/2025-06-22-vdb-report.md",
-    "vdb/report/2025-06-16-vdb-report.md",
-    "vdb/report/2025-05-30-vdb-report.md",
-    "vdb/report/2025-05-09-vdb-report.md",
-    "vdb/report/2025-05-02-vdb-report.md",
-    "vdb/report/2025-04-18-vdb-report.md",
-    "백민호 이력서.md",
-    "tutorial/2024-08-09-백민호.md",
-    "tutorial/2024-09-06-백민호(rex).md",
-    "tutorial/2024-10-17-fourier.md",
     "images/소공개_샘플_1.png",
     "images/이력서_학연생_샘플_1.png",
     "vglare/main.pdf",
@@ -245,15 +237,11 @@
     "무제 1",
     "영어공부/무제.base",
     "영어공부",
-    "tmp",
     "images/F-B series(2, 10).png",
     "images/F-B series(2, 20).png",
     "images/F-B series(5,5).png",
     "images/F-B series(5,10).png",
-    "review",
     "무제 파일.canvas",
-    "vglare",
-    "sh",
     "무제 파일 1.canvas"
   ]
 }
