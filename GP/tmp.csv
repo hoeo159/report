@@ -1,0 +1,6 @@
+ShapeID,Name,Category,Value,Status,Description
+HUB01,Hub,PlayerProfile,65,Normal,Player greedy tendency score
+EXP01,Expedition,WorldRisk,72,High,Current expedition danger level
+WP01,World Parameters,WorldState,43,Normal,Global environmental risk index
+PP01,Player Profile (Curious),PlayerTrait,1,Increase,Player curiosity rising
+PP02,Player Profile (Social),PlayerTrait,1,Normal,Social trait interaction indicator

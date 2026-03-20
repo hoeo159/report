@@ -2,28 +2,45 @@
 	\Materials
 		Highlight_A
 		Tile_A
-		Tile_B
+		Tile_B ... 
 	\Prefabs
 		BootStrapper
 		GameManager
-		Tile
+		Tile ... 
 	\Scenes
 		Boot
 		Expedition
 		Hub
 	\ScriptableObjects
 		\Templates\GameStateTemplates
+		\UnitDataSO\player, NPCs etc..
 	\Scripts
+		\Combat
+			BattleController.cs
+			CombatUnit.cs
+			EnemyController.cs
+			EnemyUtilityAI.cs
+			Faction.cs
+			GridPath.cs
+			UnitDataSO.cs
 		\Core
 			BootLoader.cs
 			GameManager.cs
 			RuntimeBootstrap.cs
 			ProfileCalculator.cs
+			EventApplier.cs
+			EventDirector.cs
 		\Data
 			GameStateSO.cs
 			BehaviorSummary.cs
 			ExpedEndResult.cs
 			PlayerProfile.cs
+			EventcardSO.cs
+		\Hub
+			HubDirectorRunner
+			HubEventBoard.cs
+			HubEventData.cs
+			HubEventGenerator.cs
 		\Expedition
 			ExpedController.cs
 			ExpedHUD.cs
@@ -32,6 +49,15 @@
 			GridManager.cs
 			Tile.cs
 			TileContentType.cs
-		\UI
+			Trackball.cs
+			WorldTurnRunner.cs
+		\Hub
 			HubUI.cs
+			HubEventData.cs
+			HubDirectorRunner.cs
+			HubEventGenerator.cs
+		\LLM
+			OpenAIResponseClient.cs
+			PromptContextBuilder.cs
+			TalkDirector.cs
 	\UI

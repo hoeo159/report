@@ -35,4 +35,5 @@
 - NPC
 - Goal
 - Radiation
-- Raider
+
+추가로 개인 NPC(적/중립) 별 개인 우호도(affinity)
