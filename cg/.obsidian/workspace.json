@@ -13,15 +13,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "vdb/temp/load-manager.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "load-manager"
+            }
+          },
+          {
+            "id": "23f42fa27ab2f765",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "vdb/asset/pinned_figure_sample.png"
+              },
+              "icon": "lucide-image",
+              "title": "pinned_figure_sample"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -94,7 +107,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "images/Pasted image 20241017164045.png",
+                "file": "vdb/asset/pinned_figure_sample.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +117,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Pasted image 20241017164045의 백링크"
+              "title": "pinned_figure_sample 의 백링크"
             }
           },
           {
@@ -150,8 +163,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -164,54 +176,53 @@
       "bases:새 베이스 생성하기": false
     }
   },
-  "active": "81947b6148e58667",
+  "active": "23f42fa27ab2f765",
   "lastOpenFiles": [
-    "vglare/할 것들.md",
-    "README.md",
+    "vdb/temp/load-manager.md",
+    "vdb/2차년도.md",
+    "vglare/diagram.png",
+    "vglare/diagram.pdf",
+    "vglare/드로잉 1.png",
+    "vglare/드로잉 1.pdf",
+    "vdb/2차년도_결과들.md",
+    "vdb/3.3 chunk methodology.md",
+    "vdb/report/2025-01-21-vdb-report.md",
+    "vdb/report/2025-04-04-vdb-report.md",
+    "vdb/report/2025-04-11-vdb-report.md",
+    "vdb/report/2025-04-18-vdb-report.md",
+    "vdb/report/2025-05-02-vdb-report.md",
+    "vdb/report/2025-05-09-vdb-report.md",
+    "vdb/report/2025-05-30-vdb-report.md",
+    "vdb/report/2025-06-16-vdb-report.md",
+    "vdb/report/2025-06-22-vdb-report.md",
+    "vdb/0528_master.md",
     "vdb/2025-04-04 feedback.md",
-    "tmp/백민호_포트폴리오.md",
-    "vglare/glare model metric.pdf",
-    "vglare/report/2025-05-26-vglare-intro.md",
-    "vglare/URP.pdf",
-    "vglare/report/2025-04-17-vglare-Intensity normalization using UBO.md",
-    "vglare/main.pdf",
+    "vdb/Detailed Analysis and Optimization of CUDA K-means  Algorithm.md",
+    "vdb/master_my.md",
     "vglare/report/2025-04-07-vglare-bug fix, normalize.md",
-    "vglare/report/2025-03-07-vglare.md",
-    "vglare/report/2025-02-07-vglare.md",
+    "vglare/report/2025-04-17-vglare-Intensity normalization using UBO.md",
     "vglare/report/2025-03-28-vglare-Parametric 2d Gaussian Fourier Series.md",
-    "vglare/report/2025-03-18-vglare.md",
     "vglare/report/2025-02-28-vglare.md",
     "vglare/report/2025-02-06-vglare.md",
     "vglare/report/2025-02-04-vglare.md",
-    "vglare/archive/2025-05-27-vglare-intro.md",
-    "vglare/archive/논문 초안.md",
-    "vglare/archive/glare model metric.md",
-    "vglare/archive/Quad-Based Fourier Transform for Efficient Diffraction Synthesis.md",
-    "vdb/report/2025-01-14-vdb-report.md",
+    "vglare/images/k=1000,fourier.png",
+    "vglare/images/k=1000,non-fourier.png",
+    "vglare/glare model metric.pdf",
+    "vglare/할 것들.md",
+    "vglare/main.pdf",
+    "vglare/URP.pdf",
     "vdb/report/2025-01-07-vdb-report.md",
-    "vdb/report/2024/2024-12-24-VDB-report.md",
-    "vdb/report/2024/2024-11-18-VDB-report.md",
-    "vdb/report/2024/2024-11-06-VDB-report.md",
-    "vdb/report/2024/2024-09-09-VDB-report.md",
-    "vdb/report/2024/2024-10-30-VDB-report.md",
-    "vdb/meetings/2025-05-02-meeting.md",
+    "vdb/asset/0604_seq.png",
     "vdb/asset/levle2.png",
     "vdb/asset/level3.png",
     "vdb/asset/level_vis.png",
     "vdb/asset/labeled-dataset-standard-kmeans.png",
     "vdb/asset/level_iteration.png",
-    "vdb/asset/HW_pipeline.png",
-    "vdb/asset/fish-data-clustering-result.png",
-    "vdb/asset/first-unzip.png",
-    "vdb/asset/first-clustering.png",
-    "vdb/asset/convergence-kmeans.png",
     "vglare/archive",
     "vglare/새 폴더",
     "GP",
     "무제.base",
     "무제 1",
-    "영어공부/무제.base",
-    "영어공부",
     "무제 파일.canvas",
     "무제 파일 1.canvas"
   ]
